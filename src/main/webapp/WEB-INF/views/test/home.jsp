@@ -25,7 +25,7 @@
 				{type:'input',name:'tiid',label:'ID'},
 				{type:'input',name:'tipwd',label:'PWD'},
 				{type:'input',name:'tiname',label:'NAME'},
-				{type:'date',name:'tibirth',label:'BIRTH'},
+				{type:'input',name:'tibirth',label:'BIRTH'},
 				{type:'input',name:'tiemail',label:'EMAIL'},
 				{type:'input',name:'tihobby',label:'HOBBY'},
 				{type:'input',name:'tiaddress',label:'ADDRESS'},
