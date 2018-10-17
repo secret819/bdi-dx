@@ -26,7 +26,7 @@ public class TestController {
 	private TestService ts;
 	
 	@RequestMapping(value="/tests", method=RequestMethod.GET)
-	public @ResponseBody List<Test> getTestList(@RequestBody Test ti) {
+	public @ResponseBody List<Test> getTestList(@ModelAttribute Test ti) {
 		return ts.selectTestList(ti);
 	}
 	
