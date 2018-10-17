@@ -31,5 +31,15 @@ public class TestServiceImpl implements TestService{
 		return tdao.insertTest(ti);
 	}
 
+	@Override
+	public int updateTest(Test ti) {
+		return tdao.updateTest(ti);
+	}
+
+	@Override
+	public int deleteTest(int tinum) {
+		return tdao.deleteTest(tinum);
+	}
+
 	
 }

@@ -11,4 +11,8 @@ public interface TestDAO {
 	public Test selectTestOne(int tinum);
 	
 	public int insertTest(Test ti);
+	
+	public int updateTest(Test ti);
+	
+	public int deleteTest(int tinum);
 }

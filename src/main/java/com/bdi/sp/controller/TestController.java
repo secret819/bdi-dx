@@ -36,7 +36,18 @@ public class TestController {
 	}
 	
 	@RequestMapping(value="/tests", method=RequestMethod.POST)
-	public @ResponseBody int insertTest(@ModelAttribute Test ti) {
+	public @ResponseBody int insertTest(@RequestBody Test ti) {
 		return ts.insertTest(ti);
+	}
+	
+	@RequestMapping(value="/tests/{tinum}", method=RequestMethod.PUT)
+	public @ResponseBody int updateTest(@RequestBody Test ti, @PathVariable int tinum) {
+		ti.setTiNum(tinum);
+		return ts.updateTest(ti);
+	}
+	
+	@RequestMapping(value="/tests/{tinum}", method=RequestMethod.DELETE)
+	public @ResponseBody int updateTest(@PathVariable int tinum) {
+		return ts.deleteTest(tinum);
 	}
 }

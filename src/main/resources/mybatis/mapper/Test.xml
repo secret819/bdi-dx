@@ -16,4 +16,25 @@
   	 values(#{tinum},#{tiid},#{tipwd},#{tiname},#{tibirth},#{tiemail},#{tihobby},#{tiaddress},#{tiphone},#{tiage})
   </insert>
   
+  <update id="updateTest" parameterType="com.bdi.sp.vo.Test">
+  	update test_info
+  	<set>
+  		<if test="tiid!=null">tiid=#{tiid},</if>
+  		<if test="tipwd!=null">tipwd=#{tipwd},</if>
+  		<if test="tiname!=null">tiname=#{tiname},</if>
+  		<if test="tibirth!=null">tibirth=#{tibirth},</if>
+  		<if test="tiemail!=null">tiemail=#{tiemail},</if>
+  		<if test="tihobby!=null">tibobby=#{tihobby},</if>
+  		<if test="tiaddress!=null">tiaddress=#{tiaddress},</if>
+  		<if test="tiphone!=null">tiphone=#{tiphone},</if>
+  		<if test="tiage!=null">tiage=#{tiage},</if>
+  	</set>
+  	where tinum=#{tinum}
+  </update>
+  
+  
+  <delete id="deleteTest" parameterType="int">
+  	delete from test_info
+  	where tinum=#{tinum}
+  </delete>
   </mapper>

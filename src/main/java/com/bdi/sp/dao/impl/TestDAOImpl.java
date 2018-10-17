@@ -30,4 +30,14 @@ public class TestDAOImpl implements TestDAO{
 		return ss.insert("com.bdi.sp.TestMapper.insertTest", ti);
 	}
 
+	@Override
+	public int updateTest(Test ti) {
+		return ss.update("com.bdi.sp.TestMapper.updateTest",ti);
+	}
+
+	@Override
+	public int deleteTest(int tinum) {
+		return ss.delete("com.bdi.sp.TesT.Mapper.deleteTest",tinum);
+	}
+
 }
