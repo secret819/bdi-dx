@@ -79,9 +79,9 @@
 					var signupForm = new dhtmlXForm('signupForm',signupFormData);
 					dxSignup.window('w2').attachObject('signupForm');
 					dxSignup.window('w2').setText('Sign_up');
-					singupForm.attachEvent('onButtonClick',function(name){
+					signupForm.attachEvent('onButtonClick',function(name){
 						if(name=='signupbtn'){
-							var id = signupForm.getItemValue('tiid');
+							var id = signupForm.getItemValue('tiId');
 							var pwd = signupForm.getItemValue('tipwd');
 							var name = signupForm.getItemValue('tiname');
 							var birth = signupForm.getItemValue('tibirth');
@@ -91,7 +91,7 @@
 							var phone = signupForm.getItemValue('tiphone');
 							var age = signupForm.getItemValue('tiage');
 							var conf = {
-									url:'/tests',
+									url:'/tests/',
 									method:'POST',
 									param : JSON.stringify({id:id,pwd:pwd,name:name,birth:birth,email:email,hobby:hobby,address:address,phone:phone,age:age}),
 									success : function(res){

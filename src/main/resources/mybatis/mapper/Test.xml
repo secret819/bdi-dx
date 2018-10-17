@@ -12,8 +12,8 @@
   </select>
   
   <insert id="insertTest" parameterType="com.bdi.sp.vo.Test">
-  	insert into test_info(tinum,tiid,tipwd,tiname,tibirth,tiemail,tihobby,tiaddress,tiphone,tiage)
-  	 values(#{tinum},#{tiid},#{tipwd},#{tiname},#{tibirth},#{tiemail},#{tihobby},#{tiaddress},#{tiphone},#{tiage})
+  	insert into test_info(tiid,tipwd,tiname,tibirth,tiemail,tihobby,tiaddress,tiphone,tiage)
+  	 values(#{tiid},#{tipwd},#{tiname},#{tibirth},#{tiemail},#{tihobby},#{tiaddress},#{tiphone},#{tiage})
   </insert>
   
   <update id="updateTest" parameterType="com.bdi.sp.vo.Test">
