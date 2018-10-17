@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.bdi.sp.TestMapper">
+  <select id="selectTestList" resultType="com.bdi.sp.vo.Test">
+    select * from test_info
+  </select>
+  
+  <select id="selectTestOne" resultType="com.bdi.sp.vo.Test" parameterType="int">
+    select * from test_info where tinum=#{tiNum}
+  </select>
+  
+  <insert id="insertTest" parameterType="com.bdi.sp.vo.Test">
+  	insert into test_info(tinum,tiid,tipwd,tiname,tibirth,tiemail,tihobby,tiaddress,tiphone,tiage)
+  	 values(#{tinum},#{tiid},#{tipwd},#{tiname},#{tibirth},#{tiemail},#{tihobby},#{tiaddress},#{tiphone},#{tiage})
+  </insert>
+  
+  </mapper>
