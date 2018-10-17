@@ -13,13 +13,16 @@
 		testGrid = new dhtmlXGridObject('testGrid');
 		testGrid.setImagePath('${gridPath}');
 		testGrid.setHeader('번호,아이디,이름,생년월일,이메일,취미,주소,휴대전화,나이');
-		testGrid.setColumnIds('tinum,tiid,tiname,tibirth,tiemail,tihobby,tiaddress,tiphone,itage');
+		testGrid.setColumnIds('tiNum,tiId,tiName,tiBirth,tiEmail,tiHobby,tiAddress,tiPhone,tiAge');
 		testGrid.setColAlign('center,center,center,center,center,center,center,center,center');
-		testGrid.setColTypes('ro,ed,ed,ed,ed,ed,ed,ed,ed');
+		testGrid.setColTypes('link,ed,ed,ed,ed,ed,ed,ed,ed');
 		testGrid.setColSorting('int,str,str,str,str,str,str,str,int');
 		testGrid.init();
 		au.send({url:'/tests',success:function(res){
 			res = JSON.parse(res);
+			for(ti of res){
+				ti.tiNum += '^/uri/test/view?tiNum=' + ti.tiNum;
+			}
 			testGrid.parse(res, 'js');
 		}})
 	})

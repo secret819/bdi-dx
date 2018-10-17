@@ -9,7 +9,7 @@ public class Test {
 	private String tiId;
 	private String tiPwd;
 	private String tiName;
-	private String tibirth;
+	private String tiBirth;
 	private String tiEmail;
 	private String tiHobby;
 	private String tiAddress;
@@ -39,11 +39,11 @@ public class Test {
 	public void setTiName(String tiName) {
 		this.tiName = tiName;
 	}
-	public String getTibirth() {
-		return tibirth;
+	public String getTiBirth() {
+		return tiBirth;
 	}
-	public void setTibirth(String tibirth) {
-		this.tibirth = tibirth;
+	public void setTiBirth(String tiBirth) {
+		this.tiBirth = tiBirth;
 	}
 	public String getTiEmail() {
 		return tiEmail;
@@ -78,7 +78,7 @@ public class Test {
 	@Override
 	public String toString() {
 		return "Test [tiNum=" + tiNum + ", tiId=" + tiId + ", tiPwd=" + tiPwd + ", tiName=" + tiName + ", tibirth="
-				+ tibirth + ", tiEmail=" + tiEmail + ", tiHobby=" + tiHobby + ", tiAddress=" + tiAddress + ", tiPhone="
+				+ tiBirth + ", tiEmail=" + tiEmail + ", tiHobby=" + tiHobby + ", tiAddress=" + tiAddress + ", tiPhone="
 				+ tiPhone + ", tiAge=" + tiAge + "]";
 	}
 	
