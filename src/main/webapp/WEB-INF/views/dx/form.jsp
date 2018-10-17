@@ -22,6 +22,7 @@
 			]	
 		}
 	];
+	var registerFormData 
 	
 	function doInit(){
 		var forms = [
