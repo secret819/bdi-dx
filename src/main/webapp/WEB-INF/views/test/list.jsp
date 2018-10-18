@@ -23,6 +23,7 @@
 			for(ti of res){
 				ti.tiNum += '^/uri/test/view?tiNum=' + ti.tiNum;
 			}
+			console.log(res);
 			testGrid.parse(res, 'js');
 		}})
 	})
