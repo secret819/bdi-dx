@@ -27,13 +27,22 @@
 </script>
 <body>
 	<div id="testGrid1" style="width:1000px;height:500px;background-color:white;"></div>
-	<button>리스트로</button>
-	<button>리스트로</button>
+	<button>수정</button>
+	<button onclick="goDelete()">삭제</button>
 	<button onclick="goList()">리스트로</button>
 
 <script>
 	function goList(){
 		location.href="/uri/test/list";
+	}
+	function goDelete(){
+		au.send({
+			url:'/tests/${param.tiNum}',
+			method:'DELETE',
+			success : function(res){
+				alert('삭제를 성공했습니다.');
+				goList();
+			}})
 	}
 </script>
 </body>

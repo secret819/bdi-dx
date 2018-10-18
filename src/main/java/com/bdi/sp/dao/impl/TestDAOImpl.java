@@ -37,7 +37,7 @@ public class TestDAOImpl implements TestDAO{
 
 	@Override
 	public int deleteTest(int tinum) {
-		return ss.delete("com.bdi.sp.TesT.Mapper.deleteTest",tinum);
+		return ss.delete("com.bdi.sp.TestMapper.deleteTest",tinum);
 	}
 
 }
