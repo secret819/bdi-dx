@@ -27,5 +27,14 @@
 </script>
 <body>
 	<div id="testGrid1" style="width:1000px;height:500px;background-color:white;"></div>
+	<button>리스트로</button>
+	<button>리스트로</button>
+	<button onclick="goList()">리스트로</button>
+
+<script>
+	function goList(){
+		location.href="/japans";
+	}
+</script>
 </body>
 </html>
