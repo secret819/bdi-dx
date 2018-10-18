@@ -22,15 +22,15 @@
 	var signupFormData = [
 		{type:'fieldset',name:'signup',label:'signup',inputWidth:'auto',
 			list:[
-				{type:'input',name:'tiId',label:'ID'},
-				{type:'input',name:'tiPwd',label:'PWD'},
-				{type:'input',name:'tiName',label:'NAME'},
-				{type:'input',name:'tiBirth',label:'BIRTH'},
-				{type:'input',name:'tiEmail',label:'EMAIL'},
-				{type:'input',name:'tiHobby',label:'HOBBY'},
-				{type:'input',name:'tiAddress',label:'ADDRESS'},
-				{type:'input',name:'tiPhone',label:'PHONE'},
-				{type:'input',name:'tiAge',label:'AGE'},
+				{type:'input',name:'tiid',label:'ID'},
+				{type:'input',name:'tipwd',label:'PWD'},
+				{type:'input',name:'tiname',label:'NAME'},
+				{type:'input',name:'tibirth',label:'BIRTH'},
+				{type:'input',name:'tiemail',label:'EMAIL'},
+				{type:'input',name:'tihobby',label:'HOBBY'},
+				{type:'input',name:'tiaddress',label:'ADDRESS'},
+				{type:'input',name:'tiphone',label:'PHONE'},
+				{type:'input',name:'tiage',label:'AGE'},
 				{type:'button',name:'signupbtn',value:'SIGN_UP'}
 			]	
 		}
@@ -40,8 +40,7 @@
 	function doInit(){
 		var forms = [
 			{type:'button', value:'로그인', name:'signinbtn_l'},
-			{type:'button', value:'회원가입', name:'signupbtn_r'},
-			{type:'button', value:'리스트로', name:'golist'}
+			{type:'button', value:'회원가입', name:'signupbtn_r'}
 		]
 		var dxForm = new dhtmlXForm('dxForm',forms);
 		dxForm.attachEvent('onButtonClick',function(name){
@@ -80,21 +79,21 @@
 					var signupForm = new dhtmlXForm('signupForm',signupFormData);
 					dxSignup.window('w2').attachObject('signupForm');
 					dxSignup.window('w2').setText('Sign_up');
-					signupForm.attachEvent('onButtonClick',function(name){
+					singupForm.attachEvent('onButtonClick',function(name){
 						if(name=='signupbtn'){
-							var id = signupForm.getItemValue('tiId');
-							var pwd = signupForm.getItemValue('tiPwd');
-							var name = signupForm.getItemValue('tiName');
-							var birth = signupForm.getItemValue('tiBirth');
-							var email = signupForm.getItemValue('tiEmail');
-							var hobby = signupForm.getItemValue('tiHobby');
-							var address = signupForm.getItemValue('tiAddress');
-							var phone = signupForm.getItemValue('tiPhone');
-							var age = signupForm.getItemValue('tiAge');
+							var id = signupForm.getItemValue('tiid');
+							var pwd = signupForm.getItemValue('tipwd');
+							var name = signupForm.getItemValue('tiname');
+							var birth = signupForm.getItemValue('tibirth');
+							var email = signupForm.getItemValue('tiemail');
+							var hobby = signupForm.getItemValue('tihobby');
+							var address = signupForm.getItemValue('tiaddress');
+							var phone = signupForm.getItemValue('tiphone');
+							var age = signupForm.getItemValue('tiage');
 							var conf = {
 									url:'/tests',
 									method:'POST',
-									param : JSON.stringify({tiId:id,tiPwd:pwd,tiName:name,tiBirth:birth,tiEmail:email,tiHobby:hobby,tiAddress:address,tiPhone:phone,tiAge:age}),
+									param : JSON.stringify({id:id,pwd:pwd,name:name,birth:birth,email:email,hobby:hobby,address:address,phone:phone,age:age}),
 									success : function(res){
 										res = JSON.parse(res);
 										alert(res.msg);
@@ -105,7 +104,6 @@
 					})
 					
 				}
-				
 			}
 		})
 	}
