@@ -23,15 +23,13 @@
   <update id="updateTest" parameterType="com.bdi.sp.vo.Test">
   	update test_info
   	<set>
-  		<if test="tiid!=null">tiid=#{tiId},</if>
-  		<if test="tipwd!=null">tipwd=#{tiPwd},</if>
-  		<if test="tiname!=null">tiname=#{tiName},</if>
-  		<if test="tibirth!=null">tibirth=#{tiBirth},</if>
-  		<if test="tiemail!=null">tiemail=#{tiEmail},</if>
-  		<if test="tihobby!=null">tibobby=#{tiHobby},</if>
-  		<if test="tiaddress!=null">tiaddress=#{tiAddress},</if>
-  		<if test="tiphone!=null">tiphone=#{tiPhone},</if>
-  		<if test="tiage!=null">tiage=#{tiAge},</if>
+  		<if test="tiName!=null">tiname=#{tiName},</if>
+  		<if test="tiBirth!=null">tibirth=#{tiBirth},</if>
+  		<if test="tiEmail!=null">tiemail=#{tiEmail},</if>
+  		<if test="tiHobby!=null">tihobby=#{tiHobby},</if>
+  		<if test="tiAddress!=null">tiaddress=#{tiAddress},</if>
+  		<if test="tiPhone!=null">tiphone=#{tiPhone},</if>
+  		<if test="tiAge!=null">tiage=#{tiAge},</if>
   	</set>
   	where tinum=#{tiNum}
   </update>
