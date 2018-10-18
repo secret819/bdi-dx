@@ -82,7 +82,7 @@
 					var signupForm = new dhtmlXForm('signupForm',signupFormData);
 					dxSignup.window('w2').attachObject('signupForm');
 					dxSignup.window('w2').setText('Sign_up');
-					singupForm.attachEvent('onButtonClick',function(name){
+					signupForm.attachEvent('onButtonClick',function(name){
 						if(name=='signupbtn'){
 							var id = signupForm.getItemValue('tiid');
 							var pwd = signupForm.getItemValue('tipwd');
@@ -96,10 +96,10 @@
 							var conf = {
 									url:'/tests',
 									method:'POST',
-									param : JSON.stringify({id:id,pwd:pwd,name:name,birth:birth,email:email,hobby:hobby,address:address,phone:phone,age:age}),
+									param : JSON.stringify({tiId:id,tiPwd:pwd,tiName:name,tiBirth:birth,tiEmail:email,tiHobby:hobby,tiAddress:address,tiPhone:phone,tiAge:age}),
 									success : function(res){
 										res = JSON.parse(res);
-										alert(res.msg);
+										alert('회원가입이 완료되셨습니다.');
 									}
 							}
 							au.send(conf)
