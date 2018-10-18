@@ -37,6 +37,7 @@ public class TestController {
 	
 	@RequestMapping(value="/tests", method=RequestMethod.POST)
 	public @ResponseBody int insertTest(@RequestBody Test ti) {
+		logger.debug("insertTest=>{}",ti);
 		return ts.insertTest(ti);
 	}
 	
@@ -47,7 +48,10 @@ public class TestController {
 	}
 	
 	@RequestMapping(value="/tests/{tinum}", method=RequestMethod.DELETE)
-	public @ResponseBody int updateTest(@PathVariable int tinum) {
+	public @ResponseBody int deleteTest(@PathVariable int tinum) {
 		return ts.deleteTest(tinum);
 	}
+	
+	
+	
 }

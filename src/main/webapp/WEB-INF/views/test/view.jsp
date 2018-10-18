@@ -14,27 +14,18 @@
 		testGrid.setImagePath('${gridPath}');
 		testGrid.setHeader('번호,아이디,이름,생년월일,이메일,취미,주소,휴대전화,나이');
 		testGrid.setColumnIds('tiNum,tiId,tiName,tiBirth,tiEmail,tiHobby,tiAddress,tiPhone,tiAge');
-		testGrid.setColAlign('center,center,center,center,center,center,center,center,center,center');
+		testGrid.setColAlign('center,center,center,center,center,center,center,center,center');
 		testGrid.setColTypes('ro,ed,ed,ed,ed,ed,ed,ed,ed');
 		testGrid.setColSorting('int,str,str,str,str,str,str,str,int');
 		testGrid.init();
 		au.send({url:'/tests/${param.tiNum}',success:function(res){
 			res = JSON.parse(res);
-			testGrid.parse(res,'js');
+			console.log(res);
+			testGrid.parse(res, 'js');
 		}})
 	})
 </script>
 <body>
-	<div id="testGrid" style="width:1000px;height:100px;background-color:white;"></div>
-	<button>수정</button>
-	<button>삭제</button>
-	<button onclick="goList()">리스트로</button>
-
-<script>
-	function goList(){
-		location.href="/uri/test/list"
-	}
-
-</script>
+	<div id="testGrid" style="width:1000px;height:500px;background-color:white;"></div>
 </body>
 </html>
