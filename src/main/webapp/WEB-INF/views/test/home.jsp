@@ -58,12 +58,15 @@
 								var id = signinForm.getItemValue('id');
 								var pwd = signinForm.getItemValue('pwd');
 								var conf = {
-									url:'/',
+									url:'/login',
 									method:'POST',
-									param : JSON.stringify({id:id,pwd:pwd}),
+									param : JSON.stringify({tiId:id,tiPwd:pwd}),
 									success : function(res){
 										res = JSON.parse(res);
 										alert(res.msg);
+										if(res.rank=="admin"){
+											location.href="/uri/test/list";
+										}
 									}
 								}
 								au.send(conf);

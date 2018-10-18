@@ -10,22 +10,22 @@
 <script>
 	var testGrid;
 	window.addEventListener('load',function(){
-		testGrid = new dhtmlXGridObject('testGrid');
+		testGrid = new dhtmlXGridObject('testGrid1');
 		testGrid.setImagePath('${gridPath}');
 		testGrid.setHeader('번호,아이디,이름,생년월일,이메일,취미,주소,휴대전화,나이');
 		testGrid.setColumnIds('tiNum,tiId,tiName,tiBirth,tiEmail,tiHobby,tiAddress,tiPhone,tiAge');
 		testGrid.setColAlign('center,center,center,center,center,center,center,center,center');
-		testGrid.setColTypes('ro,ed,ed,ed,ed,ed,ed,ed,ed');
+		testGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ed');
 		testGrid.setColSorting('int,str,str,str,str,str,str,str,int');
 		testGrid.init();
 		au.send({url:'/tests/${param.tiNum}',success:function(res){
-			res = JSON.parse(res);
+			res = JSON.parse('[' + res + ']');
 			console.log(res);
 			testGrid.parse(res, 'js');
 		}})
 	})
 </script>
 <body>
-	<div id="testGrid" style="width:1000px;height:500px;background-color:white;"></div>
+	<div id="testGrid1" style="width:1000px;height:500px;background-color:white;"></div>
 </body>
 </html>
