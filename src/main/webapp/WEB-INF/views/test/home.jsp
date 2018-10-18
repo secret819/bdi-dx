@@ -40,8 +40,7 @@
 	function doInit(){
 		var forms = [
 			{type:'button', value:'로그인', name:'signinbtn_l'},
-			{type:'button', value:'회원가입', name:'signupbtn_r'},
-			{type:'button', value:'리스트로', name:'golist'}
+			{type:'button', value:'회원가입', name:'signupbtn_r'}
 		]
 		var dxForm = new dhtmlXForm('dxForm',forms);
 		dxForm.attachEvent('onButtonClick',function(name){
@@ -59,12 +58,15 @@
 								var id = signinForm.getItemValue('id');
 								var pwd = signinForm.getItemValue('pwd');
 								var conf = {
-									url:'/',
+									url:'/login',
 									method:'POST',
-									param : JSON.stringify({id:id,pwd:pwd}),
+									param : JSON.stringify({tiId:id,tiPwd:pwd}),
 									success : function(res){
 										res = JSON.parse(res);
 										alert(res.msg);
+										if(res.rank=="admin"){
+											location.href="/uri/test/list";
+										}
 									}
 								}
 								au.send(conf);

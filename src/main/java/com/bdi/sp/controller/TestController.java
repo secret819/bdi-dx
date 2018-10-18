@@ -1,6 +1,8 @@
 package com.bdi.sp.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,11 +29,12 @@ public class TestController {
 	
 	@RequestMapping(value="/tests", method=RequestMethod.GET)
 	public @ResponseBody List<Test> getTestList(@ModelAttribute Test ti) {
-		return ts.selectTestList(ti);
+		return ts.selectTestList(null);
 	}
 	
 	@RequestMapping(value="/tests/{tinum}", method=RequestMethod.GET)
 	public @ResponseBody Test getTestOne(@PathVariable Integer tinum) {
+		logger.debug("getOneTest=>{}",ts.selectTestOne(tinum));
 		return ts.selectTestOne(tinum);
 	}
 	
@@ -53,5 +56,33 @@ public class TestController {
 	}
 	
 	
+	@RequestMapping(value="/login",method=RequestMethod.POST)
+	public @ResponseBody Map<String,String> login(@RequestBody Test ti){
+		Map<String,String> rMap = new HashMap<String,String>();
+		rMap.put("login","fail");
+		rMap.put("msg", "아이디및 비밀번호를 확인하세요");
+		if(ti.getTiId()==null) {
+			return rMap;
+		}
+		
+		List<Test> tList = ts.selectTestList(ti);
+		logger.debug("LoginTest=>{}",tList.get(0));
+		
+		
+		
+		if(ti.getTiId().equals(tList.get(0).getTiId())) {
+			if(ti.getTiPwd().equals(tList.get(0).getTiPwd())) {
+				rMap.put("login", "success");
+				rMap.put("msg", tList.get(0).getTiName()+"님 로그인 되었습니다.");
+				rMap.put("rank", "user");
+				if(tList.get(0).getTiNum()==1) {
+				rMap.put("rank", "admin");
+				}
+				
+			}
+		}
+		
+		return rMap;
+	}
 	
 }
