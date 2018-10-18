@@ -22,8 +22,8 @@
 	var signupFormData = [
 		{type:'fieldset',name:'signup',label:'signup',inputWidth:'auto',
 			list:[
-				{type:'input',name:'tiid',label:'ID'},
-				{type:'input',name:'tipwd',label:'PWD'},
+				{type:'input',name:'tiid',label:'ID',validate:'ValidAplhaNumeric'},
+				{type:'input',name:'tipwd',label:'PWD',validate:'ValidAplhaNumeric'},
 				{type:'input',name:'tiname',label:'NAME'},
 				{type:'input',name:'tibirth',label:'BIRTH'},
 				{type:'input',name:'tiemail',label:'EMAIL'},
@@ -40,7 +40,8 @@
 	function doInit(){
 		var forms = [
 			{type:'button', value:'로그인', name:'signinbtn_l'},
-			{type:'button', value:'회원가입', name:'signupbtn_r'}
+			{type:'button', value:'회원가입', name:'signupbtn_r'},
+			{type:'button', value:'리스트로', name:'golist'}
 		]
 		var dxForm = new dhtmlXForm('dxForm',forms);
 		dxForm.attachEvent('onButtonClick',function(name){
@@ -104,6 +105,7 @@
 					})
 					
 				}
+				
 			}
 		})
 	}
