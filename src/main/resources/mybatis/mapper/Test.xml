@@ -13,28 +13,28 @@
   
   <insert id="insertTest" parameterType="com.bdi.sp.vo.Test">
   	insert into test_info(tiid,tipwd,tiname,tibirth,tiemail,tihobby,tiaddress,tiphone,tiage)
-  	 values(#{tiid},#{tipwd},#{tiname},#{tibirth},#{tiemail},#{tihobby},#{tiaddress},#{tiphone},#{tiage})
+  	 values(#{tiId},#{tiPwd},#{tiName},#{tiBirth},#{tiEmail},#{tiHobby},#{tiAddress},#{tiPhone},#{tiAge})
   </insert>
   
   <update id="updateTest" parameterType="com.bdi.sp.vo.Test">
   	update test_info
   	<set>
-  		<if test="tiid!=null">tiid=#{tiid},</if>
-  		<if test="tipwd!=null">tipwd=#{tipwd},</if>
-  		<if test="tiname!=null">tiname=#{tiname},</if>
-  		<if test="tibirth!=null">tibirth=#{tibirth},</if>
-  		<if test="tiemail!=null">tiemail=#{tiemail},</if>
-  		<if test="tihobby!=null">tibobby=#{tihobby},</if>
-  		<if test="tiaddress!=null">tiaddress=#{tiaddress},</if>
-  		<if test="tiphone!=null">tiphone=#{tiphone},</if>
-  		<if test="tiage!=null">tiage=#{tiage},</if>
+  		<if test="tiid!=null">tiid=#{tiId},</if>
+  		<if test="tipwd!=null">tipwd=#{tiPwd},</if>
+  		<if test="tiname!=null">tiname=#{tiName},</if>
+  		<if test="tibirth!=null">tibirth=#{tiBirth},</if>
+  		<if test="tiemail!=null">tiemail=#{tiEmail},</if>
+  		<if test="tihobby!=null">tibobby=#{tiHobby},</if>
+  		<if test="tiaddress!=null">tiaddress=#{tiAddress},</if>
+  		<if test="tiphone!=null">tiphone=#{tiPhone},</if>
+  		<if test="tiage!=null">tiage=#{tiAge},</if>
   	</set>
-  	where tinum=#{tinum}
+  	where tinum=#{tiNum}
   </update>
   
   
   <delete id="deleteTest" parameterType="int">
   	delete from test_info
-  	where tinum=#{tinum}
+  	where tinum=#{tiNum}
   </delete>
   </mapper>

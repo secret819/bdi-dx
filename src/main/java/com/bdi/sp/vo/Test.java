@@ -77,7 +77,7 @@ public class Test {
 	}
 	@Override
 	public String toString() {
-		return "Test [tiNum=" + tiNum + ", tiId=" + tiId + ", tiPwd=" + tiPwd + ", tiName=" + tiName + ", tibirth="
+		return "Test [tiNum=" + tiNum + ", tiId=" + tiId + ", tiPwd=" + tiPwd + ", tiName=" + tiName + ", tiBirth="
 				+ tiBirth + ", tiEmail=" + tiEmail + ", tiHobby=" + tiHobby + ", tiAddress=" + tiAddress + ", tiPhone="
 				+ tiPhone + ", tiAge=" + tiAge + "]";
 	}
