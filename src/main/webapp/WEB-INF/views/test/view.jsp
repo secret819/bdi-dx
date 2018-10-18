@@ -33,7 +33,7 @@
 
 <script>
 	function goList(){
-		location.href="/japans";
+		location.href="/uri/test/list";
 	}
 </script>
 </body>
