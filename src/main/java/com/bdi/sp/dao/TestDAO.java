@@ -15,4 +15,8 @@ public interface TestDAO {
 	public int updateTest(Test ti);
 	
 	public int deleteTest(int tinum);
+	
+	public Test login(Test ti);
+	
+	public Test selectTestOneForId(String tiId);
 }

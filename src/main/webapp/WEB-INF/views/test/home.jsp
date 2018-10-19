@@ -52,6 +52,10 @@
 					var signinForm = new dhtmlXForm('signinForm',signinFormData);
 					dxSignin.window('w1').attachObject('signinForm');
 					dxSignin.window('w1').setText('Sign_in');
+					dxSignin.window('w1').attachEvent('onClose',function(win){
+						win.hide();
+						return;
+					});
 					signinForm.attachEvent('onButtonClick',function(name){
 						if(name=='signinbtn'){
 							if(signinForm.validate()){
@@ -73,6 +77,8 @@
 							}
 						}
 					})
+				} else {
+					dxSignin.window('w1').show();
 				}
 			} else if(name=='signupbtn_r'){
 				if(!dxSignup){
@@ -82,6 +88,10 @@
 					var signupForm = new dhtmlXForm('signupForm',signupFormData);
 					dxSignup.window('w2').attachObject('signupForm');
 					dxSignup.window('w2').setText('Sign_up');
+					dxSignup.window('w2').attachEvent('onClose',function(win){
+						win.hide();
+						return;
+					});
 					signupForm.attachEvent('onButtonClick',function(name){
 						if(name=='signupbtn'){
 							var id = signupForm.getItemValue('tiid');
@@ -99,13 +109,14 @@
 									param : JSON.stringify({tiId:id,tiPwd:pwd,tiName:name,tiBirth:birth,tiEmail:email,tiHobby:hobby,tiAddress:address,tiPhone:phone,tiAge:age}),
 									success : function(res){
 										res = JSON.parse(res);
-										alert('회원가입이 완료되셨습니다.');
+										alert(res.msg);
 									}
 							}
 							au.send(conf)
 						}
 					})
-					
+				} else {
+					dxSignup.window('w2').show();
 				}
 			}
 		})

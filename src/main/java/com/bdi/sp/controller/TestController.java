@@ -39,9 +39,11 @@ public class TestController {
 	}
 	
 	@RequestMapping(value="/tests", method=RequestMethod.POST)
-	public @ResponseBody int insertTest(@RequestBody Test ti) {
+	public @ResponseBody Map<String,String> insertTest(@RequestBody Test ti) {
+		Map<String,String> rMap = new HashMap<String,String>();
 		logger.debug("insertTest=>{}",ti);
-		return ts.insertTest(ti);
+		ts.insertTest(ti, rMap);
+		return rMap;
 	}
 	
 	@RequestMapping(value="/tests/{tinum}", method=RequestMethod.PUT)
@@ -65,17 +67,22 @@ public class TestController {
 			return rMap;
 		}
 		
-		List<Test> tList = ts.selectTestList(ti);
-		logger.debug("LoginTest=>{}",tList.get(0));
+		Test tList = ts.login(ti);
+		if(tList == null) {
+			rMap.put("login", "fail");
+			rMap.put("msg", "수고해라.");
+			return rMap;
+		}
+		logger.debug("LoginTest=>{}",tList);
 		
 		
 		
-		if(ti.getTiId().equals(tList.get(0).getTiId())) {
-			if(ti.getTiPwd().equals(tList.get(0).getTiPwd())) {
+		if(ti.getTiId().equals(tList.getTiId())) {
+			if(ti.getTiPwd().equals(tList.getTiPwd())) {
 				rMap.put("login", "success");
-				rMap.put("msg", tList.get(0).getTiName()+"님 로그인 되었습니다.");
+				rMap.put("msg", tList.getTiName()+"님 로그인 되었습니다.");
 				rMap.put("rank", "user");
-				if(tList.get(0).getTiNum()==1) {
+				if(tList.getTiNum()==1) {
 				rMap.put("rank", "admin");
 				}
 				

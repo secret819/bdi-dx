@@ -1,6 +1,7 @@
 package com.bdi.sp.dao.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,14 @@ public class TestDAOImpl implements TestDAO{
 	public List<Test> selectTestList(Test ti) {
 		return ss.selectList("com.bdi.sp.TestMapper.selectTestList",ti);
 	}
-	
+
 	@Override
 	public Test selectTestOne(int tinum) {
 		return ss.selectOne("com.bdi.sp.TestMapper.selectTestOne",tinum);
+	}
+	@Override
+	public Test selectTestOneForId(String tiId) {
+		return ss.selectOne("com.bdi.sp.TestMapper.selectTestForId",tiId);
 	}
 
 	@Override
@@ -38,6 +43,11 @@ public class TestDAOImpl implements TestDAO{
 	@Override
 	public int deleteTest(int tinum) {
 		return ss.delete("com.bdi.sp.TestMapper.deleteTest",tinum);
+	}
+
+	@Override
+	public Test login(Test ti) {
+		return ss.selectOne("com.bdi.sp.TestMapper.loginTest",ti);
 	}
 
 }

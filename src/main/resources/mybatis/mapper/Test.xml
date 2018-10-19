@@ -15,6 +15,10 @@
     select * from test_info where tinum=#{tiNum}
   </select>
   
+  <select id="selectTestForId" resultType="com.bdi.sp.vo.Test" parameterType="string">
+    select * from test_info where tiid=#{tiid}
+  </select>
+  
   <insert id="insertTest" parameterType="com.bdi.sp.vo.Test">
   	insert into test_info(tiid,tipwd,tiname,tibirth,tiemail,tihobby,tiaddress,tiphone,tiage)
   	 values(#{tiId},#{tiPwd},#{tiName},#{tiBirth},#{tiEmail},#{tiHobby},#{tiAddress},#{tiPhone},#{tiAge})
@@ -39,4 +43,13 @@
   	delete from test_info
   	where tinum=#{tiNum}
   </delete>
+  
+  
+  <select id="loginTest" resultType="com.bdi.sp.vo.Test" parameterType="com.bdi.sp.vo.Test">
+  	    select * from test_info
+    <where>
+    	<if test="tiId!=null"> and tiid=#{tiId}</if>
+    	<if test="tiPwd!=null"> and tipwd=#{tiPwd}</if>
+    </where>
+  </select>
   </mapper>

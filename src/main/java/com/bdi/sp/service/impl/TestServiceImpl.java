@@ -1,6 +1,7 @@
 package com.bdi.sp.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,8 +28,18 @@ public class TestServiceImpl implements TestService{
 	}
 
 	@Override
-	public int insertTest(Test ti) {
-		return tdao.insertTest(ti);
+	public Map<String, String> insertTest(Test ti, Map<String,String> rMap) {
+		if(tdao.selectTestOneForId(ti.getTiId())!=null) {
+			rMap.put("reg", "fail");
+			rMap.put("msg", "이미 있는 아이디 입니다.");
+			return rMap;
+		}
+		int success = tdao.insertTest(ti);
+		if(success==1) {
+			rMap.put("reg", "success");
+			rMap.put("msg", "회원가입에 성공하셨습니다.");
+		}
+		return rMap;
 	}
 
 	@Override
@@ -39,6 +50,11 @@ public class TestServiceImpl implements TestService{
 	@Override
 	public int deleteTest(int tinum) {
 		return tdao.deleteTest(tinum);
+	}
+
+	@Override
+	public Test login(Test ti) {
+		return tdao.login(ti);
 	}
 
 	
