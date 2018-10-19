@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="${resPath}/dhtmlx/skins/skyblue/dhtmlx.css">
 </head>
 <script>
+	var view;
 	var testGrid;
 	window.addEventListener('load',function(){
 		testGrid = new dhtmlXGridObject('testGrid1');
@@ -22,12 +23,14 @@
 			res = JSON.parse('[' + res + ']');
 			console.log(res);
 			testGrid.parse(res, 'js');
+			view = res;
+			testGrid.selectRow(0);
 		}})
 	})
 </script>
 <body>
 	<div id="testGrid1" style="width:1000px;height:500px;background-color:white;"></div>
-	<button>수정</button>
+	<button onclick="goUpdate()">수정</button>
 	<button onclick="goDelete()">삭제</button>
 	<button onclick="goList()">리스트로</button>
 
@@ -44,6 +47,56 @@
 				goList();
 			}})
 	}
+	function goUpdate(){
+		var rowId = testGrid.getSelectedRowId();
+		var data =testGrid.getRowData(rowId);
+		console.log(data);
+		var upFormData = [
+			{type:'fieldset',name:'update',label:'update',inputWidth:'auto',
+				list:[
+					{type:'input',name:'tiName',label:'NAME', value:data.tiName},
+					{type:'input',name:'tiBirth',label:'BIRTH', value:data.tiBirth},
+					{type:'input',name:'tiEmail',label:'EMAIL', value:data.tiEmail},
+					{type:'input',name:'tiHobby',label:'HOBBY', value:data.tiHobby},
+					{type:'input',name:'tiAddress',label:'ADDRESS', value:data.tiAddress},
+					{type:'input',name:'tiPhone',label:'PHONE', value:data.tiPhone},
+					{type:'input',name:'tiAge',label:'AGE', value:data.tiAge},
+					{type:'button',name:'updatebtn',value:'UPDATE'}
+				]	
+			}
+		];
+		var upWindow = new dhtmlXWindows();
+		upWindow.createWindow('w3',0,0,300,400);
+		upWindow.window('w3').centerOnScreen();
+		var upForm = new dhtmlXForm('upForm',upFormData);
+		upWindow.window('w3').attachObject('upForm');
+		upWindow.window('w3').setText('update');
+		upForm.attachEvent('onButtonClick',function(name){
+			if(name=='updatebtn'){
+				var num = ${param.tiNum}
+				var name = upForm.getItemValue('tiName');
+				var birth = upForm.getItemValue('tiBirth');
+				var email = upForm.getItemValue('tiEmail');
+				var hobby = upForm.getItemValue('tiHobby');
+				var address = upForm.getItemValue('tiAddress');
+				var phone = upForm.getItemValue('tiPhone');
+				var age = upForm.getItemValue('tiAge');
+				var conf = {
+						url:'/tests/'+num,
+						method:'PUT',
+						param : JSON.stringify({tiName:name,tiBirth:birth,tiEmail:email,tiHobby:hobby,tiAddress:address,tiPhone:phone,tiAge:age}),
+						success : function(res){
+							res = JSON.parse(res);
+							alert('수정이 완료되셨습니다.');
+							location.href='/uri/test/view?tiNum='+${param.tiNum};
+						}
+				}
+				au.send(conf)
+			}
+		})
+		
+	}
 </script>
+<div id='upForm' style="width:300px;heigth:500px";></div>
 </body>
 </html>
