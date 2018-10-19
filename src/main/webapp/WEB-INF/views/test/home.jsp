@@ -102,7 +102,7 @@
 										alert('회원가입이 완료되셨습니다.');
 									}
 							}
-							au.send(conf)
+							au.send(conf);
 						}
 					})
 					
