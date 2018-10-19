@@ -112,7 +112,7 @@
 										alert(res.msg);
 									}
 							}
-							au.send(conf)
+							au.send(conf);
 						}
 					})
 				} else {
