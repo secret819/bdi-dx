@@ -31,7 +31,6 @@
 				{type:'input',name:'tiaddress',label:'ADDRESS'},
 				{type:'input',name:'tiphone',label:'PHONE'},
 				{type:'input',name:'tiage',label:'AGE'},
-				{type:'calendar',name:'tb', label:'BIRTH',dateFormat:"%Y-%m-%d"},
 				{type:'button',name:'signupbtn',value:'SIGN_UP'}
 			]	
 		}
