@@ -40,4 +40,11 @@ public class DepartServiceImpl implements DepartService {
 		return ddao.deleteDepart(di);
 	}
 
+	@Override
+	public int saveInsertUpdateDI(Depart di) {
+		int cnt = ddao.insertDepart(di);
+		cnt += ddao.updateDepart(di);
+		return cnt;
+	}
+
 }

@@ -127,5 +127,15 @@
 <div id='dxForm' style="width:300px; heigth:200px;"></div>
 <div id='signinForm' style="width:300px; heigth:300px;"></div>
 <div id='signupForm' style="width:300px; heigth:500px;"></div>
+<form onsubmit="return zzz()">
+<input type="text" name="id" minlength="4" required>
+
+</form>
+
+<script>
+	function zzz(){
+		alert('성공');
+	}
+</script>
 </body>
 </html>

@@ -16,4 +16,22 @@
     select * from depart_info
     where dino=#{dino}
   </select>
+   <update id="updateDepart" parameterType="com.bdi.sp.vo.Depart">
+  	update depart_info
+  	<set>
+  		<if test="diname!=null">diname=#{diname},</if>
+  		<if test="didesc!=null">didesc=#{didesc},</if>
+  	</set>
+  	where dino=#{dino}
+  </update>
+  
+    <insert id="insertDepart" parameterType="com.bdi.sp.vo.Depart">
+  	insert into depart_info(diname, didesc)
+  	values(#{diname},#{didesc})
+  </insert>
+  
+   <delete id="deleteDepart" parameterType="com.bdi.sp.vo.Depart">
+  	delete FROM depart_info
+  	 where dino=#{dino}
+  </delete>
   </mapper>

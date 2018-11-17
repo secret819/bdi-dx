@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="${resPath}/dhtmlx/skins/skyblue/dhtmlx.css"/>
 <script src="${resPath}/dhtmlx/codebase/dhtmlx.js"></script>
 <script src="${resPath}/js/AjaxUtil.js"></script>
+<script src="${resPath}/jquery-3.3.1.min.js"></script>
 <script>
 var au = new AjaxUtil();
 

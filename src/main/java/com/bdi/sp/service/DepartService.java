@@ -11,4 +11,5 @@ public interface DepartService {
 	public int insertDepart(Depart di);
 	public int updateDepart(Depart di);
 	public int deleteDepart(Depart di);
+	public int saveInsertUpdateDI(Depart di);
 }

@@ -33,9 +33,9 @@ public class DepartController {
 	}
 	
 	@RequestMapping (value="/departs/{dino}", method=RequestMethod.POST)
-	public @ResponseBody int insertDepart(@ModelAttribute Depart d, @PathVariable Integer dino) {
+	public @ResponseBody int insertDepart(@RequestBody Depart d, @PathVariable Integer dino) {
 		logger.debug("insertdepart=>{}",d);
-		return ds.insertDepart(d);
+		return ds.saveInsertUpdateDI(d);
 	}
 	
 	@RequestMapping (value="/departs/{dino}", method=RequestMethod.PUT)
